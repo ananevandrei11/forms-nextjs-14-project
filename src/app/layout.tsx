@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
@@ -17,8 +18,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-      <Toaster />
+      <body className={inter.className}>
+        <header className="m-auto w-full p-5 sticky top-0 bg-gray-400">
+          <nav className="flex items-center justify-around flex-wrap text-pretty text-center gap-2">
+            <Link href="/">Home</Link>
+            <Link href="/deal-simple">Deal Simple Form</Link>
+            <Link href="/deal-react-hook-form">Deal React Hook Form</Link>
+            <Link href="/github-register-form">GitHub Register Form</Link>
+          </nav>
+        </header>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          {children}
+        </main>
+        <Toaster />
+      </body>
     </html>
   );
 }

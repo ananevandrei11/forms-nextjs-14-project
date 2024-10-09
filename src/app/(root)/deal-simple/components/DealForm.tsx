@@ -31,6 +31,7 @@ export default function DealForm() {
   const [errors, setErrors] = useState<StringMap>(serverState?.errors || {});
 
   useEffect(() => {
+    console.log('serverState', { serverState });
     if (serverState.successMsg) {
       toast.success(serverState.successMsg);
       setBlurs({});
@@ -45,7 +46,6 @@ export default function DealForm() {
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    console.log(blurs);
     setBlurs(prev => ({ ...prev, [name]: true }));
   }
 

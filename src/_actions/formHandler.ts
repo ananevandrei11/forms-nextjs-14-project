@@ -27,7 +27,9 @@ export const formHandlerAction = async (
       discount: Number(formData.get('discount') as string || 10),
     };
     return {
-      errors, data: dealData, blurs: {
+      errors,
+      data: dealData,
+      blurs: {
         name: true,
         link: true,
         couponCode: true,
